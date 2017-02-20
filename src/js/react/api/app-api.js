@@ -4,8 +4,9 @@ module.exports = {
     fetchData(opts) {
 
         let options = {
-            url: 'http://jsonplaceholder.typicode.com/users',
-            method: 'GET'
+            url: 'https://en.wikipedia.org/w/api.php?action=query&list=random&rnlimit=10&format=json',
+            method: 'GET',
+            dataType: 'jsonp'
         }
 
         if (opts) {

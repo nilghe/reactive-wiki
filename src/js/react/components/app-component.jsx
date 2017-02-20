@@ -30,7 +30,7 @@ class App extends React.Component {
 
                 {this.state.appData.map((data) => {
                     return (
-                        <p key={data.id}>{data.name}</p> 
+                        <p key={data.id}>{data.title}</p> 
                     )
                 })}
             </div>

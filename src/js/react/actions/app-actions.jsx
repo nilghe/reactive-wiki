@@ -9,7 +9,9 @@ class AppActions {
     fetchData() {
         Api.fetchData()
             .done((data) => {
-                this.updateData(data);
+                let wikiData = data.query.random;
+                console.log(wikiData);
+                this.updateData(wikiData);
             })
             .fail((err) => {
                 this.dataFailed('Oops, something happened while loading the data.');
