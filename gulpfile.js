@@ -47,11 +47,7 @@ var appJs = {
   name: 'app.js'
 }
 
-var vendorJs = [
-  paths.npm + 'jquery/dist/jquery.js',
-  paths.npm + 'foundation-sites/dist/foundation.js',
-  paths.npm + 'fastclick/lib/fastclick.js'
-];
+var vendorJs = [];
 
 var dependencies = [
     'react',
