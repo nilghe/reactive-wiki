@@ -23,16 +23,26 @@ class App extends React.Component {
         this.setState(state);
     }
 
+    moreDetailClick(pageId) {
+        AppActions.fetchPageDataById(pageId);
+    }
+
     render() {
         return (
             <div>
-                <h1>React App Component</h1>
+                <h1>Media Wiki</h1>
+                <h2>List</h2>
 
-                {this.state.appData.map((data) => {
-                    return (
-                        <p key={data.id}>{data.title}</p> 
-                    )
-                })}
+                <ul>
+                    {this.state.appData.map((data) => {
+                            return (
+                                <li key={data.id} 
+                                    onClick={() => this.moreDetailClick(data.id)} >
+                                    <a href="#">{data.title}</a>
+                                </li>
+                            )
+                    })}
+                </ul>
             </div>
         )
     }
