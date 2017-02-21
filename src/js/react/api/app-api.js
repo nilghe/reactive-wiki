@@ -17,8 +17,9 @@ module.exports = {
     },
 
     fetchPageDataById(opts, pageId) {
+        console.log('getting page details with id:' + pageId);
         let options = {
-            url: 'https://en.wikipedia.org/w/api.php?action=parse&format=json&pageid=17455050',
+            url: `https://en.wikipedia.org/w/api.php?action=parse&format=json&pageid=${pageId}`,
             method: 'GET',
             dataType: 'jsonp'
         }   

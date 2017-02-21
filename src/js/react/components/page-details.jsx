@@ -1,6 +1,7 @@
 import React       from 'react';
 import AppStore    from '../stores/app-stores.jsx';
 import AppActions  from '../actions/app-actions.jsx';
+import _           from 'lodash';
 
 class PageDetails extends React.Component {
     constructor(props) {
@@ -19,9 +20,19 @@ class PageDetails extends React.Component {
     }
 
     render() {
+
+        if (_.isEmpty(this.state.pageData)) {
+            return (
+                <div>Loading!</div>
+            )
+        }
+
         return (
             <div>
-                <span>{this.props.params.pageId}</span>
+                <span>{this.state.pageData.parse.title}</span>
+                <div className='content' 
+                     dangerouslySetInnerHTML={{__html: this.state.pageData.parse.text['*']}}>
+                </div>
             </div>
         )
     }

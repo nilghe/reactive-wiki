@@ -25,10 +25,6 @@ class PageList extends React.Component {
         this.setState(state);
     }
 
-    moreDetailClick(pageId) {
-        AppActions.fetchPageDataById(pageId);
-    }
-
     render() {
         return (
             <div>
@@ -38,8 +34,7 @@ class PageList extends React.Component {
                 <ul>
                     {this.state.appData.map((data) => {
                             return (
-                                <li key={data.id} 
-                                    onClick={() => this.moreDetailClick(data.id)} >
+                                <li key={data.id}>
                                     <Link to={`/${data.id}`}>{data.title}</Link>
                                 </li>
                             )
