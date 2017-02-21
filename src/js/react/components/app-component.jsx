@@ -1,8 +1,10 @@
 import React       from 'react';
 import AppStore    from '../stores/app-stores.jsx';
 import AppActions  from '../actions/app-actions.jsx';
+import { Link }    from 'react-router'
 
-class App extends React.Component {
+
+class PageList extends React.Component {
 
     constructor(props) {
         super(props);
@@ -38,7 +40,7 @@ class App extends React.Component {
                             return (
                                 <li key={data.id} 
                                     onClick={() => this.moreDetailClick(data.id)} >
-                                    <a href="#">{data.title}</a>
+                                    <Link to={`/${data.id}`}>{data.title}</Link>
                                 </li>
                             )
                     })}
@@ -48,4 +50,4 @@ class App extends React.Component {
     }
 }
 
-module.exports = App;
+export default PageList;
