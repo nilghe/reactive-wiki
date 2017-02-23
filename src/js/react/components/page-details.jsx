@@ -55,6 +55,13 @@ class PageDetails extends React.Component {
         currentArticle.images = singleArticle.parse.images;
         allArticles[index] = currentArticle;
 
+        /* The API call needs the filenames of the images in the following format
+         * File:filename.jpg|File:myimage.gif
+         */
+        const fileListFormatted = 'File:' + currentArticle.images.join('|File:');
+        // TODO This isn't working and I need to fix it to get the URLS of the images
+        // AppActions.fetchImageUrls(fileListFormatted);
+
         this.setState({
             appData: allArticles
         });

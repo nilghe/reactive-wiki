@@ -30,9 +30,9 @@ module.exports = {
         return $.ajax(options);
     },
 
-    fetchImageURLByFileName(opts, fileName) {
+    fetchImageURLByFileName(opts, formatedFileList) {
         let options = {
-            url: `https://en.wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url&titles=${fileName}`,
+            url: `https://en.wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url&titles=${formatedFileList}`,
             method: 'GET',
             dataType: 'jsonp'
         }

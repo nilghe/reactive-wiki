@@ -58,6 +58,19 @@ class AppActions {
         return true;
     }
 
+    fetchImageUrls(formatedFileList) {
+        Api.fetchImageURLByFileName({}, formatedFileList)
+            .done((images) => {
+                console.log('got the images');
+                console.log(images);
+            })
+            .fail((err) => {
+                this.dataFailed('Oops, something when wrong when grabbing the image URLs');
+            })
+
+        return true;
+    }
+
     dataFailed(err) {
         return err;
     }
