@@ -22,7 +22,7 @@ class PageDetails extends React.Component {
     onChange(state) {
 
         if (!_.isEmpty(state.pageData)) {
-            this._setArticleCategories(
+            this._setArticleAdditionalData(
                 state.pageData,
                 state.appData,
                 this.props.params.pageId
@@ -44,7 +44,7 @@ class PageDetails extends React.Component {
         });
     }
 
-    _setArticleCategories(singleArticle, allArticles, currentArticleId) {
+    _setArticleAdditionalData(singleArticle, allArticles, currentArticleId) {
         const index = this._getArticleIndex(
             allArticles,
             currentArticleId
@@ -52,6 +52,7 @@ class PageDetails extends React.Component {
                     
         let currentArticle = allArticles[index];
         currentArticle.categories = singleArticle.parse.categories;
+        currentArticle.images = singleArticle.parse.images;
         allArticles[index] = currentArticle;
 
         this.setState({
