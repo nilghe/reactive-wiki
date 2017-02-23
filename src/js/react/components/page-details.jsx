@@ -13,6 +13,9 @@ class PageDetails extends React.Component {
     componentDidMount() {
         AppStore.listen(this.onChange);
         AppActions.fetchPageDataById(this.props.params.pageId);
+        this.setState({
+            currentArticle: {}
+        });
     }
 
     componentWillUnmount() {
@@ -63,13 +66,14 @@ class PageDetails extends React.Component {
         // AppActions.fetchImageUrls(fileListFormatted);
 
         this.setState({
+            currentArticle: currentArticle,
             appData: allArticles
         });
     }
 
     render() {
 
-        if (_.isEmpty(this.state.pageData)) {
+        if (_.isEmpty(this.state.currentArticle)) {
             return (
                 <div>Loading!</div>
             )
@@ -77,8 +81,17 @@ class PageDetails extends React.Component {
 
         return (
             <div>
-                <span>{this.state.pageData.parse.title}</span>
-                {this.state.pageData.parse.images.map((image) => {
+                <span>{this.state.currentArticle.title}</span>
+
+                <ul>
+                    {this.state.currentArticle.categories.map((category, index) => {
+                        return (
+                            <li>{category['*']}</li>
+                        )
+                    })}
+                </ul>
+
+                {this.state.currentArticle.images.map((image) => {
                     return (
                         <img src={image}></img>
                     )
