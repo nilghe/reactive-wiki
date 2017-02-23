@@ -15,8 +15,48 @@ class PageDetails extends React.Component {
         AppActions.fetchPageDataById(this.props.params.pageId);
     }
 
+    componentWillUnmount() {
+        AppStore.unlisten(this.onChange);
+    }
+
     onChange(state) {
+
+        if (!_.isEmpty(state.pageData)) {
+            this._setArticleCategories(
+                state.pageData,
+                state.appData,
+                this.props.params.pageId
+            );
+        }
+
         this.setState(state);
+    }
+
+    _getArticleIndex(articles, id) {
+        return _.findIndex(articles, function(obj) {
+            return obj.id == id;
+        });
+    }
+
+    _getArticleObject(articles, id) {
+        return _.find(articles, function(obj) {
+            return obj.id == id;
+        });
+    }
+
+    _setArticleCategories(singleArticle, allArticles, currentArticleId) {
+        const index = this._getArticleIndex(
+            allArticles,
+            currentArticleId
+        );
+                    
+        let currentArticle = allArticles[index];
+        currentArticle.categories = singleArticle.parse.categories;
+        allArticles[index] = currentArticle;
+
+        this.setState({
+            appData: allArticles
+        });
     }
 
     render() {
@@ -30,9 +70,11 @@ class PageDetails extends React.Component {
         return (
             <div>
                 <span>{this.state.pageData.parse.title}</span>
-                <div className='content' 
-                     dangerouslySetInnerHTML={{__html: this.state.pageData.parse.text['*']}}>
-                </div>
+                {this.state.pageData.parse.images.map((image) => {
+                    return (
+                        <img src={image}></img>
+                    )
+                })}
             </div>
         )
     }

@@ -33,11 +33,11 @@ class PageList extends React.Component {
 
                 <ul>
                     {this.state.appData.map((data) => {
-                            return (
-                                <li key={data.id}>
-                                    <Link to={`/${data.id}`}>{data.title}</Link>
-                                </li>
-                            )
+                        return (
+                            <li key={data.id}>
+                                <Link to={`/${data.id}`}>{data.title}</Link>
+                            </li>
+                        )
                     })}
                 </ul>
             </div>

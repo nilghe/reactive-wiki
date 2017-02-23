@@ -17,12 +17,25 @@ module.exports = {
     },
 
     fetchPageDataById(opts, pageId) {
-        console.log('getting page details with id:' + pageId);
         let options = {
             url: `https://en.wikipedia.org/w/api.php?action=parse&format=json&pageid=${pageId}`,
             method: 'GET',
             dataType: 'jsonp'
         }   
+
+        if (opts) {
+            $.extend(options, opts);
+        }
+
+        return $.ajax(options);
+    },
+
+    fetchImageURLByFileName(opts, fileName) {
+        let options = {
+            url: `https://en.wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url&titles=${fileName}`,
+            method: 'GET',
+            dataType: 'jsonp'
+        }
 
         if (opts) {
             $.extend(options, opts);

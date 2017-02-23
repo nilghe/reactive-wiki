@@ -112,7 +112,7 @@ gulp.task('browserify', function(){
     .transform(babelify, {presets: ['es2015', 'react']})
     .bundle()
     .pipe(source(appJs.name))
-    .pipe(streamify(uglify({ mangle: false })))
+    // .pipe(streamify(uglify({ mangle: false })))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(paths.js.dist))
 });
