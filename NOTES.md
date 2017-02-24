@@ -16,3 +16,5 @@ If you want to check out other projects I have done, you can see the links below
 	* You can download from the [App Store](https://itunes.apple.com/us/app/tdr-now-wait-times-for-tokyo/id1158761120?mt=8)
 * [TDR Now React App](https://gitlab.com/nilghe/tdrnow-webapp)
 	* You can see it [here](https://tdrnow.com)
+
+Thank you

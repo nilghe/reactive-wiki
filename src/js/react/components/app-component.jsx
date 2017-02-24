@@ -25,6 +25,7 @@ class PageList extends React.Component {
         this.setState(state);
     }
 
+    // TODO Use some nice foundation components cause this is a little too basic
     render() {
         return (
             <div>

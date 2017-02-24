@@ -80,6 +80,7 @@ class PageDetails extends React.Component {
             )
         }
 
+        // TODO Better handling if there are no categories or images
         return (
             <div>
                 <h1>{this.state.currentArticle.title}</h1>
