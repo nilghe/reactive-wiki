@@ -10,3 +10,18 @@
   justify-content: center;
   text-align: center;
 }
+
+.wiki-list {
+  text-align: left;
+  list-style: none;
+
+  li {
+    margin-bottom: 1em;
+  }
+}
+
+a:link,
+a:active {
+  color: #fff;
+  text-decoration: none;
+}

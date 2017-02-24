@@ -1,3 +1,7 @@
+/*
+ * READ THE NOTES.md
+ */
+
 import React    from 'react';
 import ReactDOM from 'react-dom';
 import PageList from './components/app-component.jsx';

@@ -58,7 +58,8 @@ class PageDetails extends React.Component {
         currentArticle.images = singleArticle.parse.images;
         allArticles[index] = currentArticle;
 
-        /* The API call needs the filenames of the images in the following format
+        /* 
+         * The API call needs the filenames of the images in the following format
          * File:filename.jpg|File:myimage.gif
          */
         const fileListFormatted = 'File:' + currentArticle.images.join('|File:');
@@ -81,9 +82,9 @@ class PageDetails extends React.Component {
 
         return (
             <div>
-                <span>{this.state.currentArticle.title}</span>
-
-                <ul>
+                <h1>{this.state.currentArticle.title}</h1>
+                <h2>Categories</h2>
+                <ul className='wiki-list'>
                     {this.state.currentArticle.categories.map((category, index) => {
                         return (
                             <li>{category['*']}</li>

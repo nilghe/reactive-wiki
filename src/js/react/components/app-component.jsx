@@ -31,7 +31,7 @@ class PageList extends React.Component {
                 <h1>Media Wiki</h1>
                 <h2>List</h2>
 
-                <ul>
+                <ul className='wiki-list'>
                     {this.state.appData.map((data) => {
                         return (
                             <li key={data.id}>
